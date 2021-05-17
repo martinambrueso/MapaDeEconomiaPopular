@@ -5,8 +5,6 @@ const subcategoriesController = require('./controllers/subcategories');
 const entitiesController = require('./controllers/entities.js');
 
 exports.init = app => {
-  path = ''
-
   app.get('/api/v2/health', healthCheck);
 
   app.get('/api/v2/business-area', businessAreaController.getAll);

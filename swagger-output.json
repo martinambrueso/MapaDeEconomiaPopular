@@ -61,10 +61,50 @@
       "post": {
         "tags": [],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "User",
+            "in": "body",
+            "description": "Signup user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserSignUp"
+            }
+          }
+        ],
         "responses": {}
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "UserSignUp": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "pass": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "admin": {
+          "type": "integer"
+        }
+      }
+    },
+    "UserLogin": {
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "pass": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        }
+      }
+    }
+  }
 }
