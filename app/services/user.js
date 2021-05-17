@@ -1,10 +1,9 @@
 const jwt = require('jsonwebtoken');
 const crypto = require('../Complements/CryptoJS')
 
-const db = require('../../models');
+const user = require('../models').users;
+const errorHandler = require('./errorHandler');
 
-db.sequelize.sync();
-const user = db.User;
 
 //------------------------------------------- AUXILIARY FUNCTIONS -----------------------------------//
 
