@@ -5,12 +5,12 @@ const subcategoriesController = require('./controllers/subcategories');
 const entitiesController = require('./controllers/entities.js');
 
 exports.init = app => {
-  path = '/api/v2'
+  path = ''
 
-  app.get(path + '/health', healthCheck);
+  app.get('/api/v2/health', healthCheck);
 
-  app.get(path + '/business-area', businessAreaController.getAll);
-  app.get(path + '/categories', categoriesController.getAll);
-  app.get(path + '/categories/:id/subcategories', subcategoriesController.getAll);
-  app.post(path + '/entities', entitiesController.createOne);
+  app.get('/api/v2/business-area', businessAreaController.getAll);
+  app.get('/api/v2/categories', categoriesController.getAll);
+  app.get('/api/v2/categories/:id/subcategories', subcategoriesController.getAll);
+  app.post('/api/v2/entities', entitiesController.createOne);
 };

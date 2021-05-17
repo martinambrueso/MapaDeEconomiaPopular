@@ -5,7 +5,7 @@ const swaggerUi = require('swagger-ui-express');
 const config = require('./config');
 const routes = require('./app/routes');
 const errors = require('./app/middlewares/errors');
-const documentation = require('./documentation');
+const documentation = require('./swagger-output.json');
 const logger = require('./app/logger');
 
 const DEFAULT_BODY_SIZE_LIMIT = 1024 * 1024 * 10;

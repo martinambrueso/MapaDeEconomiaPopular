@@ -7,6 +7,7 @@
     "npm": "6.4.1"
   },
   "scripts": {
+    "swagger-autogen": "node ./app/swagger.js",
     "console": "node console.js",
     "cover": "NODE_ENV=testing istanbul cover ./node_modules/mocha/bin/_mocha  test/app.spec.js",
     "test": "NODE_ENV=testing ./node_modules/mocha/bin/_mocha --timeout 6000 --exit test/app.spec.js",
@@ -73,7 +74,8 @@
     "nodemon": "^2.0.2",
     "prettier": "^1.15.3",
     "prettier-eslint": "^9.0.1",
-    "prompt": "^1.0.0"
+    "prompt": "^1.0.0",
+    "swagger-autogen": "^2.8.2"
   },
   "husky": {
     "hooks": {
