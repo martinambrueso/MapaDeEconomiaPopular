@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
     user: { type: DataTypes.STRING, allowNull: false },
     pass: { type: DataTypes.STRING, allowNull: false },
+    admin: { type: DataTypes.BOOLEAN, allowNull: false },
     createdAt: { type: DataTypes.DATE },
     updatedAt: { type: DataTypes.DATE }
   });

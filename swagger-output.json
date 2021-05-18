@@ -1,18 +1,23 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Description",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "title": "Mapa de economia popular",
+    "description": "Documentacion de endpoints, API para consumo de geonode."
   },
   "host": "localhost:3000",
   "basePath": "/",
   "tags": [],
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
-  "consumes": [],
-  "produces": [],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/api/v2/health": {
       "get": {
@@ -28,47 +33,177 @@
     },
     "/api/v2/business-area": {
       "get": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Main"
+        ],
+        "description": "Endpoint para adicionar um usuário.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "Bearer + token.",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/UserSignUp"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
       }
     },
     "/api/v2/categories": {
       "get": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Main"
+        ],
+        "description": "Endpoint para adicionar um usuário.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "Bearer + token.",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/UserSignUp"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
       }
     },
     "/api/v2/categories/{id}/subcategories": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Main"
+        ],
+        "description": "Endpoint para adicionar um usuário.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "Bearer + token.",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/UserSignUp"
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
       }
     },
     "/api/v2/entities": {
       "post": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Main"
+        ],
+        "description": "Endpoint para adicionar um usuário.",
         "parameters": [
           {
-            "name": "User",
-            "in": "body",
-            "description": "Signup user",
+            "name": "authorization",
+            "in": "header",
+            "description": "Bearer + token.",
             "required": true,
+            "type": "string",
             "schema": {
               "$ref": "#/definitions/UserSignUp"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/signup": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para adicionar um usuário.",
+        "parameters": [
+          {
+            "name": "newUser",
+            "in": "body",
+            "description": "Informações do usuário.",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/UserSignUp"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Endpoint para adicionar um usuário.",
+        "parameters": [
+          {
+            "name": "newUser",
+            "in": "body",
+            "description": "Informações do usuário.",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/User"
             }
           }
         ],
@@ -77,32 +212,50 @@
     }
   },
   "definitions": {
-    "UserSignUp": {
+    "User": {
+      "type": "object",
       "properties": {
-        "email": {
-          "type": "string"
+        "user": {
+          "type": "string",
+          "example": "string"
         },
         "pass": {
-          "type": "string"
-        },
-        "user": {
-          "type": "string"
-        },
-        "admin": {
-          "type": "integer"
+          "type": "string",
+          "example": "string"
         }
       }
     },
-    "UserLogin": {
+    "UserSignUp": {
+      "type": "object",
       "properties": {
-        "email": {
-          "type": "string"
+        "user": {
+          "type": "string",
+          "example": "string"
         },
         "pass": {
-          "type": "string"
+          "type": "string",
+          "example": "string"
         },
+        "admin": {
+          "type": "boolean",
+          "example": false
+        }
+      }
+    },
+    "Entities": {
+      "type": "object",
+      "properties": {
         "user": {
-          "type": "string"
+          "type": "string",
+          "example": "string"
+        },
+        "pass": {
+          "type": "string",
+          "example": "string"
+        },
+        "email": {
+          "type": "string",
+          "example": "string"
         }
       }
     }

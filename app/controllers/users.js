@@ -41,6 +41,16 @@ function verifyCredentials (user, pass) {
 //------------------------------------------- END AUXILIARY FUNCTIONS -----------------------------------//
 
 exports.login = async (req, res) => {
+    /* #swagger.tags = ['User']
+        #swagger.description = 'Endpoint para adicionar um usuário.' */
+
+    /* #swagger.parameters['newUser'] = {
+            in: 'body',
+            description: 'Informações do usuário.',
+            required: true,
+            type: 'object',
+            schema: { $ref: "#/definitions/User" }
+    } */
     const {user, pass, uid, email} = req.body;
     if(await verifyCredentials(user, pass)) {
         const token = jwt.sign({ user, uid, email }, process.env.SECRET , { expiresIn: 120 });
@@ -51,11 +61,22 @@ exports.login = async (req, res) => {
 }
 
 exports.signUp = (req, res) => {
+    /* #swagger.tags = ['User']
+        #swagger.description = 'Endpoint para adicionar um usuário.' */
+
+    /* #swagger.parameters['newUser'] = {
+            in: 'body',
+            description: 'Informações do usuário.',
+            required: true,
+            type: 'object',
+            schema: { $ref: "#/definitions/UserSignUp" }
+    }
+    */
     if(req.body.user && req.body.pass) {
         user.create({
             user: req.body.user,
             pass: crypto.encryptWithAES(req.body.pass),
-            email: req.body.email,
+            admin: req.body.admin,
             createdAt: (new Date()),
             updatedAt: (new Date())
         })

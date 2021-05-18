@@ -10,6 +10,7 @@ module.exports = {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       user: { type: Sequelize.STRING, allowNull: false },
       pass: { type: Sequelize.STRING, allowNull: false },
+      admin: { type: Sequelize.BOOLEAN, allowNull: false },
       createdAt: {type: Sequelize.DATE},
       updatedAt: {type: Sequelize.DATE}
     });

@@ -24,11 +24,11 @@ exports.isAuthenticated = (req, res, next) => {
 
 exports.isAuthorized = (req, res, next) => {
 	const jwt = jwt_decode(req.token)
-	console.log(jwt)
     if(jwt) {
 		user.findAll({ where: { user: jwt.user } })
         .then((result) =>  {
-            if(result[0] && result[0].admin === 1) {
+			console.log('ESTP ###', result)
+            if(result[0] && result[0].admin === true) {
                 next()
             } else {
                 res.status(403).send({ message: "Unauthorized" });
