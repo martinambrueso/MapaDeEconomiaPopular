@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const crypto = require('../utils/CryptoJS')
 const jwt_decode = require('jwt-decode');
+const user = require('../models').users;
 
 exports.isAuthenticated = (req, res, next) => {
     const bearerHeader = req.headers["authorization"];
@@ -10,7 +10,7 @@ exports.isAuthenticated = (req, res, next) => {
 		const bearer = bearerHeader.split(" ");
 		const bearerToken = bearer[1];
 		req.token = bearerToken;
-		jwt.verify(req.token, 'my_secret_key', (err, data) => {
+		jwt.verify(req.token, process.env.SECRET, (err, data) => {
 			if(err) {
 				res.status(401).send({ message: "Token not match" });
 			} else {
@@ -22,24 +22,23 @@ exports.isAuthenticated = (req, res, next) => {
 	}
 }
 
-/* exports.isAuthorized = (req, res, next) => {
-	const { user, apiToken } = req.query;
-    if(user && apiToken) {
-		connection.query("SELECT * FROM users WHERE user = ? ", 
-			user
-			, (err, result) => {
-				if (err) {
-					console.log("error: ", err) ;
-					res.status(500).send({ message: "Internal error" });
-				} else {
-					if (result[0] && crypto.compare(apiToken, result[0].apiToken) && jwt_decode(req.token).user === user && result[0].admin === 1) {
-						next()
-					} else {
-						res.status(401).send({ message: "Unauthorized" });
-					}
-				}
-		})
+exports.isAuthorized = (req, res, next) => {
+	const jwt = jwt_decode(req.token)
+	console.log(jwt)
+    if(jwt) {
+		user.findAll({ where: { user: jwt.user } })
+        .then((result) =>  {
+            if(result[0] && result[0].admin === 1) {
+                next()
+            } else {
+                res.status(403).send({ message: "Unauthorized" });
+            }
+        })
+        .catch(err => {
+			res.status(500).send({ message: "Internal error" });
+            console.log(err.message || "Some error occurred while retrieving data.")
+        });
 	} else {
 		res.status(400).send({ message: "Check parameters" });
 	}
-} */
+}

@@ -43,7 +43,7 @@ function verifyCredentials (user, pass) {
 exports.login = async (req, res) => {
     const {user, pass, uid, email} = req.body;
     if(await verifyCredentials(user, pass)) {
-        const token = jwt.sign({ user, uid, email }, 'my_secret_key', { expiresIn: 120 });
+        const token = jwt.sign({ user, uid, email }, process.env.SECRET , { expiresIn: 120 });
         res.json({token, expire: '120'});
     } else {
         res.send({error: 'Credentials not valid'})

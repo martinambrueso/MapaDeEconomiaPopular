@@ -12,7 +12,7 @@ exports.init = app => {
   app.get('/api/v2/business-area', auth.isAuthenticated, businessAreaController.getAll);
   app.get('/api/v2/categories', auth.isAuthenticated, categoriesController.getAll);
   app.get('/api/v2/categories/:id/subcategories', auth.isAuthenticated, subcategoriesController.getAll);
-  app.post('/api/v2/entities', auth.isAuthenticated, entitiesController.createOne);
+  app.post('/api/v2/entities', auth.isAuthenticated, auth.isAuthorized, entitiesController.createOne);
 
   //Signup
   app.post('/api/v2/signup', user.signUp);
