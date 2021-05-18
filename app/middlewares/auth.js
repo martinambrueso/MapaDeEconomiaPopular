@@ -27,7 +27,6 @@ exports.isAuthorized = (req, res, next) => {
     if(jwt) {
 		user.findAll({ where: { user: jwt.user } })
         .then((result) =>  {
-			console.log('ESTP ###', result)
             if(result[0] && result[0].admin === true) {
                 next()
             } else {
