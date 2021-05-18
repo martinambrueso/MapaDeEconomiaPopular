@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-const connection = require('../db/db')
-const crypto = require('../complements/CryptoJS')
+const crypto = require('../utils/CryptoJS')
 const jwt_decode = require('jwt-decode');
 
 exports.isAuthenticated = (req, res, next) => {
@@ -23,7 +22,7 @@ exports.isAuthenticated = (req, res, next) => {
 	}
 }
 
-exports.isAuthorized = (req, res, next) => {
+/* exports.isAuthorized = (req, res, next) => {
 	const { user, apiToken } = req.query;
     if(user && apiToken) {
 		connection.query("SELECT * FROM users WHERE user = ? ", 
@@ -43,4 +42,4 @@ exports.isAuthorized = (req, res, next) => {
 	} else {
 		res.status(400).send({ message: "Check parameters" });
 	}
-}
+} */
