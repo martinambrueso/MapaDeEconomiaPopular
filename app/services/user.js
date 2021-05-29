@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const crypto = require('../Complements/CryptoJS')
+const crypto = require('../utils/CryptoJS')
 
-const user = require('../models').users;
+const userModel = require('../models').users;
 const errorHandler = require('./errorHandler');
 
 
@@ -10,7 +10,7 @@ const errorHandler = require('./errorHandler');
 //Get user from database
 function getUserFromDB (usr) {
     return new Promise((resolve) => {
-        user.findAll({ where: { user: usr } })
+        userModel.findAll({ where: { user: usr } })
         .then((result) =>  {
             if(result) {
                 resolve(result);
@@ -46,7 +46,7 @@ function verifyCredentials (user, pass) {
 exports.login = async (req, res) => {
     const {user, pass, uid, email} = req.body;
     if(await verifyCredentials(user, pass)) {
-        const token = jwt.sign({ user, uid, email }, 'my_secret_key', { expiresIn: 120 });
+        const token = jwt.sign({ user, uid, email }, process.env.SECRET, { expiresIn: 120 });
         res.json({token, expire: '120'});
     } else {
         res.send({error: 'Credentials not valid'})
@@ -54,11 +54,12 @@ exports.login = async (req, res) => {
 }
 
 exports.signUp = (req, res) => {
-    if(req.body.user && req.body.pass) {
-        user.create({
-            user: req.body.user,
-            pass: crypto.encryptWithAES(req.body.pass),
-            email: req.body.email,
+    const { user, pass, admin } = req.body
+    if(user && pass && admin != undefined) {
+        userModel.create({
+            user: user,
+            pass: crypto.encryptWithAES(pass),
+            admin: admin,
             createdAt: (new Date()),
             updatedAt: (new Date())
         })

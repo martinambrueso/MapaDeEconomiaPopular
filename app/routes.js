@@ -3,7 +3,7 @@ const businessAreaController = require('./controllers/businessAreas');
 const categoriesController = require('./controllers/categories');
 const subcategoriesController = require('./controllers/subcategories');
 const entitiesController = require('./controllers/entities.js');
-const user = require('./controllers/users');
+const userController = require('./controllers/users');
 const auth = require('./middlewares/auth')
 
 exports.init = app => {
@@ -15,7 +15,7 @@ exports.init = app => {
   app.post('/api/v2/entities', auth.isAuthenticated, auth.isAuthorized, entitiesController.createOne);
 
   //Signup
-  app.post('/api/v2/signup', user.signUp);
+  app.post('/api/v2/signup', userController.signupService);
   //Login users
-  app.post('/api/v2/login', user.login);
+  app.post('/api/v2/login', userController.loginService);
 };

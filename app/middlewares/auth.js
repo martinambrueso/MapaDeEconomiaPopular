@@ -11,6 +11,7 @@ exports.isAuthenticated = (req, res, next) => {
 		const bearerToken = bearer[1];
 		req.token = bearerToken;
 		jwt.verify(req.token, process.env.SECRET, (err, data) => {
+			console.log(err)
 			if(err) {
 				res.status(401).send({ message: "Token not match" });
 			} else {
