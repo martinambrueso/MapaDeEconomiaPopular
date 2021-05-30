@@ -18,6 +18,7 @@ COPY . .
 
 # run migrations database
 RUN npm run migrations
+RUN npm run swagger-autogen
 
 EXPOSE 3000
 CMD [ "npm", "start" ]

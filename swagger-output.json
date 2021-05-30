@@ -157,56 +157,17 @@
     },
     "/api/v2/signup": {
       "post": {
-        "tags": [
-          "User"
-        ],
-        "description": "Endpoint para adicionar um usuário.",
-        "parameters": [
-          {
-            "name": "newUser",
-            "in": "body",
-            "description": "Informações do usuário.",
-            "required": true,
-            "type": "object",
-            "schema": {
-              "$ref": "#/definitions/UserSignUp"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
       }
     },
     "/api/v2/login": {
       "post": {
-        "tags": [
-          "User"
-        ],
-        "description": "Endpoint para adicionar um usuário.",
-        "parameters": [
-          {
-            "name": "newUser",
-            "in": "body",
-            "description": "Informações do usuário.",
-            "required": true,
-            "type": "object",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          }
-        ],
+        "tags": [],
+        "description": "",
+        "parameters": [],
         "responses": {}
       }
     }
