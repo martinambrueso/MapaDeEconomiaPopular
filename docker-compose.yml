@@ -9,7 +9,7 @@ services:
     volumes:
         - $HOME/pgvol:/var/lib/postgresql/data
     environment:
-    - POSTGRES_DB: postgres
+    - POSTGRES_DB: db_tsc5
     - POSTGRES_USER: postgres
     - POSTGRES_PASSWORD: docker
   
