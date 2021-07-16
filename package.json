@@ -55,7 +55,8 @@
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "swagger-ui-express": "^4.0.7",
-    "umzug": "^2.1.0"
+    "umzug": "^2.1.0",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "babel": "6.23.0",

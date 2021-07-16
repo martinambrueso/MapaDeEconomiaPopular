@@ -1,6 +1,11 @@
 # tsc5
 
 Materia TSC5 - Cuatrimestre 2 del año 2020
+npm install
+npx sequelize db:create 
+npm run migrations
+npm run swagger-autogen
+npm start
 
 ## First steps
 
