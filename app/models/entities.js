@@ -1,35 +1,32 @@
 module.exports = (sequelize, DataTypes) => {
   const Entity = sequelize.define('entities', {
-    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    name: { type: DataTypes.STRING, allowNull: false },
-    initializedAt: { type: DataTypes.DATE, allowNull: false },
-    street: { type: DataTypes.STRING, allowNull: false },
-    streetNumber: { type: DataTypes.STRING, allowNull: false },
-    district: { type: DataTypes.STRING, allowNull: false },
-    province: { type: DataTypes.STRING, allowNull: false },
-    country: { type: DataTypes.STRING, allowNull: false },
-    locality: { type: DataTypes.STRING, allowNull: false },
-    services: { type: DataTypes.STRING, allowNull: false },
-    baseOrganization: { type: DataTypes.STRING, allowNull: false },
-    federation: { type: DataTypes.STRING, allowNull: false },
-    articulations: { type: DataTypes.STRING, allowNull: false },
-    referent: { type: DataTypes.STRING, allowNull: false },
-    mail: { type: DataTypes.STRING, allowNull: false },
-    phone: { type: DataTypes.STRING, allowNull: false },
-    website: { type: DataTypes.STRING, allowNull: false }
+      id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+      nombre: { type: DataTypes.STRING, allowNull: false },
+      tipo_unidad: { type: DataTypes.STRING, allowNull: false },
+      sub_unidad: { type: DataTypes.STRING, allowNull: false },
+      nombre_antigua_firma: { type: DataTypes.STRING, allowNull: false },
+      fecha_recuperacion: { type: DataTypes.DATE, allowNull: false },
+      bienes_servicios: { type: DataTypes.STRING, allowNull: false },
+      forma_juridica: { type: DataTypes.DATE, allowNull: false },
+      fecha_inicio: { type: DataTypes.DATE, allowNull: false },
+      calle: { type: DataTypes.STRING, allowNull: false },
+      numero: { type: DataTypes.STRING, allowNull: false },
+      entre_calle1: { type: DataTypes.STRING, allowNull: false },
+      entre_calle2: { type: DataTypes.STRING, allowNull: false },
+      barrio: { type: DataTypes.STRING, allowNull: false },
   });
 
   Entity.associate = models => {
     Entity.belongsTo(models.categories, {
-      as: 'category',
+      as: 'rubro',
       foreignKey: 'categoryId'
     });
     Entity.belongsTo(models.subcategories, {
-      as: 'subcategory',
+      as: 'sub_rubro',
       foreignKey: 'subcategoryId'
     });
     Entity.belongsTo(models.businessAreas, {
-      as: 'businessArea',
+      as: 'rama',
       foreignKey: 'businessAreaId'
     });
   };

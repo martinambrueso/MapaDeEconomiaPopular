@@ -41,4 +41,4 @@ module.exports = [
   'Trabajadorxs de la vía pública',
   'Feriante',
   'Cuidados y servicios'
-].map(businessArea => ({ name: businessArea }));
+].map(businessArea => ({ descripcion: businessArea }));

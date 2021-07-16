@@ -16,11 +16,11 @@ module.exports = {
     });
     await queryInterface.createTable('categories', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      name: { type: Sequelize.STRING, allowNull: false }
+      descripcion: { type: Sequelize.STRING, allowNull: false }
     });
     await queryInterface.createTable('subcategories', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      name: { type: Sequelize.STRING, allowNull: false },
+      descripcion: { type: Sequelize.STRING, allowNull: false },
       categoryId: {
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -32,26 +32,24 @@ module.exports = {
     });
     await queryInterface.createTable('businessAreas', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      name: { type: Sequelize.STRING, allowNull: false }
+      descripcion: { type: Sequelize.STRING, allowNull: false }
     });
     await queryInterface.createTable('entities', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      name: { type: Sequelize.STRING, allowNull: false },
-      initializedAt: { type: Sequelize.DATE, allowNull: false },
-      street: { type: Sequelize.STRING, allowNull: false },
-      streetNumber: { type: Sequelize.STRING, allowNull: false },
-      district: { type: Sequelize.STRING, allowNull: false },
-      province: { type: Sequelize.STRING, allowNull: false },
-      country: { type: Sequelize.STRING, allowNull: false },
-      locality: { type: Sequelize.STRING, allowNull: false },
-      services: { type: Sequelize.STRING, allowNull: false },
-      baseOrganization: { type: Sequelize.STRING, allowNull: false },
-      federation: { type: Sequelize.STRING, allowNull: false },
-      articulations: { type: Sequelize.STRING, allowNull: false },
-      referent: { type: Sequelize.STRING, allowNull: false },
-      mail: { type: Sequelize.STRING, allowNull: false },
-      phone: { type: Sequelize.STRING, allowNull: false },
-      website: { type: Sequelize.STRING, allowNull: false },
+      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      nombre: { type: Sequelize.STRING, allowNull: false },
+      tipo_unidad: { type: Sequelize.STRING, allowNull: false },
+      sub_unidad: { type: Sequelize.STRING, allowNull: false },
+      nombre_antigua_firma: { type: Sequelize.STRING, allowNull: false },
+      fecha_recuperacion: { type: Sequelize.DATE, allowNull: false },
+      bienes_servicios: { type: Sequelize.STRING, allowNull: false },
+      forma_juridica: { type: Sequelize.DATE, allowNull: false },
+      fecha_inicio: { type: Sequelize.DATE, allowNull: false },
+      calle: { type: Sequelize.STRING, allowNull: false },
+      numero: { type: Sequelize.STRING, allowNull: false },
+      entre_calle1: { type: Sequelize.STRING, allowNull: false },
+      entre_calle2: { type: Sequelize.STRING, allowNull: false },
+      barrio: { type: Sequelize.STRING, allowNull: false },
       categoryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
