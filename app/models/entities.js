@@ -23,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
       as: 'sub_rubro',
       foreignKey: 'subcategoryId'
     });
+    Entity.belongsTo(models.unities, {
+      as: 'unidad_productiva',
+      foreignKey: 'unityId'
+    });
+    Entity.belongsTo(models.subunities, {
+      as: 'sub_unidad',
+      foreignKey: 'subunityId'
+    });
     Entity.belongsTo(models.businessAreas, {
       as: 'rama',
       foreignKey: 'businessAreaId'

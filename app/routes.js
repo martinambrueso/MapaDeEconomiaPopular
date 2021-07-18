@@ -2,6 +2,8 @@ const { healthCheck } = require('./controllers/healthCheck');
 const businessAreaController = require('./controllers/businessAreas');
 const categoriesController = require('./controllers/categories');
 const subcategoriesController = require('./controllers/subcategories');
+const unityController = require('./controllers/unities');
+const subunitiesController = require('./controllers/subunities');
 const entitiesController = require('./controllers/entities.js');
 const userController = require('./controllers/users');
 const auth = require('./middlewares/auth')
@@ -14,6 +16,8 @@ exports.init = app => {
   app.get('/api/v2/business-area', (req, res, next) => logger.loggerTransactions(req, res, next), auth.isAuthenticated, businessAreaController.getAll);
   app.get('/api/v2/categories', (req, res, next) => logger.loggerTransactions(req, res, next), auth.isAuthenticated, categoriesController.getAll);
   app.get('/api/v2/categories/:id/subcategories', (req, res, next) => logger.loggerTransactions(req, res, next), auth.isAuthenticated, subcategoriesController.getAll);
+  app.get('/api/v2/unities', (req, res, next) => logger.loggerTransactions(req, res, next), auth.isAuthenticated, unityController.getAll);
+  app.get('/api/v2/unities/:id/subunities', (req, res, next) => logger.loggerTransactions(req, res, next), auth.isAuthenticated, subunitiesController.getAll);
   app.post('/api/v2/entities', (req, res, next) => logger.loggerTransactions(req, res, next), auth.isAuthenticated, auth.isAuthorized, entitiesController.createOne);
 
   //Signup

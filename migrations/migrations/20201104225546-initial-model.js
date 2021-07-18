@@ -1,6 +1,8 @@
 const categories = require('../seeds/categories');
 const subcategories = require('../seeds/subcategories');
 const businessAreas = require('../seeds/businessAreas');
+const unities = require('../seeds/unities');
+const subunities = require('../seeds/subunities');
 
 // const Category = require('../../app/models').categories;
 
@@ -26,6 +28,22 @@ module.exports = {
         allowNull: true,
         references: {
           model: 'categories',
+          key: 'id'
+        }
+      }
+    });
+    await queryInterface.createTable('unities', {
+      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      descripcion: { type: Sequelize.STRING, allowNull: false }
+    });
+    await queryInterface.createTable('subunities', {
+      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      descripcion: { type: Sequelize.STRING, allowNull: false },
+      unityId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'unities',
           key: 'id'
         }
       }
@@ -63,6 +81,22 @@ module.exports = {
           key: 'id'
         }
       },
+      unityId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'unities',
+          key: 'id'
+        }
+      },
+      subunityId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'subunities',
+          key: 'id'
+        }
+      },
       businessAreaId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -79,6 +113,8 @@ module.exports = {
     await queryInterface.bulkInsert('categories', categories);
     await queryInterface.bulkInsert('subcategories', subcategories);
     await queryInterface.bulkInsert('businessAreas', businessAreas);
+    await queryInterface.bulkInsert('unities', unities);
+    await queryInterface.bulkInsert('subunities', subunities);
   },
 
   down: async queryInterface => {
@@ -87,5 +123,7 @@ module.exports = {
     await queryInterface.dropTable('subcategories');
     await queryInterface.dropTable('categories');
     await queryInterface.dropTable('users');
+    await queryInterface.dropTable('unities');
+    await queryInterface.dropTable('subunities');
   }
 };
