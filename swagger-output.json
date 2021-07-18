@@ -36,17 +36,14 @@
         "tags": [
           "Main"
         ],
-        "description": "Endpoint para adicionar um usuário.",
+        "description": "Endpoint para obtener rama prouctivas.",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "description": "Bearer + token.",
             "required": true,
-            "type": "string",
-            "schema": {
-              "$ref": "#/definitions/UserSignUp"
-            }
+            "type": "string"
           }
         ],
         "responses": {
@@ -64,17 +61,14 @@
         "tags": [
           "Main"
         ],
-        "description": "Endpoint para adicionar um usuário.",
+        "description": "Endpoint para obtener categorias.",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "description": "Bearer + token.",
             "required": true,
-            "type": "string",
-            "schema": {
-              "$ref": "#/definitions/UserSignUp"
-            }
+            "type": "string"
           }
         ],
         "responses": {
@@ -92,7 +86,7 @@
         "tags": [
           "Main"
         ],
-        "description": "Endpoint para adicionar um usuário.",
+        "description": "Endpoint para obtener subcategorias.",
         "parameters": [
           {
             "name": "id",
@@ -105,10 +99,7 @@
             "in": "header",
             "description": "Bearer + token.",
             "required": true,
-            "type": "string",
-            "schema": {
-              "$ref": "#/definitions/UserSignUp"
-            }
+            "type": "string"
           }
         ],
         "responses": {
@@ -126,7 +117,7 @@
         "tags": [
           "Main"
         ],
-        "description": "Endpoint para adicionar um usuário.",
+        "description": "Endpoint para obtener entidades.",
         "parameters": [
           {
             "name": "authorization",
@@ -136,6 +127,21 @@
             "type": "string",
             "schema": {
               "$ref": "#/definitions/UserSignUp"
+            }
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
             }
           }
         ],
@@ -157,17 +163,56 @@
     },
     "/api/v2/signup": {
       "post": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
+        "tags": [
+          "AccessUsers"
+        ],
+        "description": "Endpoint para adicionar um usuário.",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                },
+                "pass": {
+                  "example": "any"
+                },
+                "admin": {
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
         "responses": {}
       }
     },
     "/api/v2/login": {
       "post": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
+        "tags": [
+          "AccessUsers"
+        ],
+        "description": "Endpoint para login de usuário.",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                },
+                "pass": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {}
       }
     }
