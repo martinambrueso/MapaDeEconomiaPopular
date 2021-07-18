@@ -20,66 +20,6 @@ DATOS DE LOS ESTUDIANTES:
 
 
 
-# **Estado de avance**
-Desarrollar detalladamente los objetivos propuestos para el trabajo en el grupo y los motivos de las decisiones que fueron tomando en el proceso de investigación y desarrollo. Es importante que den cuenta de las diversas opciones que fueron probando y desechando en el camino incluyendo un listado de ventajas y desventajas de cada una de ellos. En este punto, sugerimos que recuperen lo escrito en el informe preliminar. 
-
-Indicar dudas, dificultades e interrogantes que fueron surgiendo en el trayecto de la cursada en relación con la propuesta de trabajo.
-
-En este punto fue de vital importancia la comprensión del requerimiento. Debido a que comenzamos a trabajar en un proyecto que ya estaba comenzado, tuvimos que entender la parte funcional pero la parte técnica. Nos encontramos con que no todos los integrantes del equipo conocíamos las tecnologías utilizadas, y algunas las conocíamos con más o menos profundidad.
-
-Los ítems que fuimos avanzando a lo largo de la cursada fueron:
-
-- Se agregaron validaciones para el control de datos en los servicios que fueron desarrollados por los compañeros en las cursadas anteriores.
-- Se desarrolló e implementó el servicio para la generación de usuarios finales como administradores. Vimos necesario avanzar con este servicio para allanar el camino a los futuros compañeros programadores. Encontramos esto de gran importancia para terminar de entender qué tipos de usuarios iban a trabajar con el sistema y dejar este requerimiento completamente definido.
-- Se implementó un sistema de seguridad mediante la lógica correspondiente para la autenticación de la api (SignUp, SignIn). Esto es fundamental para la escalabilidad de la aplicación e integridad de la información.
-- Se desarrolló el servicio que devuelve los datos del formulario para darse de alta en el sistema.
-
-
-# **Guía de ingreso/utilización**
-Realizar un breve instructivo o manual de procedimiento donde detallar el modo de ingreso y uso de lo producido hasta ahora. 
-
-Como guía de ingreso se debe realizar un GIT CLONE del siguiente repositorio para ver el código fuente de la API:
-
-Para utilizar los servicios desarrollados de la API se generó el siguiente Swagger donde se visualiza los diferentes ENDPOINTS que se pueden consumir desde el FrontEnd. Este provee la información con la que debe realizarse el llamado (request) y qué información va a devolver este servicio (response):
-#
-
-
-
-
-# **Proyección y planificación**
-Delinear una planificación tentativa de tareas sugeridas paso a paso para las/los compañeras/os que continúen su labor. 
-
-Si tuvieran que planificar lo pendiente, medir el tiempo de trabajo y los principales desafíos cuales serían.
-
-Planificación:
-
-1)Descargar el código fuente
-
-2)Lectura del código para su entendimiento
-
-3)Desarrollar el servicio bajo un endpoint que reciba la información con los datos que se llamaron en el formulario, guardarlos en una base de datos relacionados al usuario con el que se registró
-
-4)Ponerse de acuerdo con el equipo de front end para decidir si ellos envían las coordenadas o desde el backend se recuperan por medio de una api. Este dato es fundamental para poderlo mostrar en un mapa.
-
-5)Desarrollar el resto de los servicios llamados desde el menú del frontend.
-
-# **Reflexión final**
-Reflexionar en cuanto a las posibilidades, potencialidades o dificultades de vinculación de su disciplina con lo que denominamos economía popular. ¿Qué otros aportes imaginan para este sector?
-
-Nosotros como estudiantes de la UNDAV entendemos que tenemos la responsabilidad de involucrarnos dentro del territorio para conocer las problemáticas en la cual la sociedad se ve afectada en la actualidad.
-
-Si bien uno cuando arranca esta carrera se enfoca en aprender y desarrollarse desde una perspectiva individual para cumplir sus objetivos personales, las materias de TSC nos muestran que el desarrollo individual sin involucrarse socialmente no es suficiente si uno no se compromete o al menos no entiende la realidad social en la que vivimos. De esta manera mediante la construcción del conocimiento que fuimos adquiriendo a lo largo de estos años en contacto estrecho con el territorio hemos entendido lo complejo que es vivir en una economía popular, donde en nuestros proyectos de la facultad nos ha tocado trabajar con fábricas recuperadas, cooperativas, radios populares, comedores. De esta manera hemos entendido lo difícil que es subsistir ante el avance de la globalización y capitalismo salvaje en el que vivimos.
-
-Además, como futuros ingenieros en informática tenemos la posibilidad de ante una problemática en particular que se nos presente tener la posibilidad de modelar esta situación para luego poder resolverla ya sea realizando un desarrollo, trabajando en conjunto con otros compañeros y equipos. 
-
-Es por esto que la combinación en involucrarnos en este proyecto como así relacionarlo con nuestra profesión fue algo muy grato para todos los integrantes de nuestro equipo, en donde lo hemos disfrutado y pudimos aportar nuestro trabajo para este proyecto.
-
-
-
-
-
-
-
 
 
 # **Anexo técnico**
