@@ -98,12 +98,6 @@ npx sequelize db:create
 npm run migrations
 ```
 
-**# instala el swagger de configuración**
-
-```bash
-npm run swagger-autogen
-```
-
 **# corre el servidor Node**
 
 ```bash
