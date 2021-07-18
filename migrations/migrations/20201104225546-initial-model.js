@@ -36,16 +36,13 @@ module.exports = {
     });
     await queryInterface.createTable('entities', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       nombre: { type: Sequelize.STRING, allowNull: false },
-      tipo_unidad: { type: Sequelize.STRING, allowNull: false },
-      sub_unidad: { type: Sequelize.STRING, allowNull: false },
       nombre_antigua_firma: { type: Sequelize.STRING, allowNull: false },
       fecha_recuperacion: { type: Sequelize.DATE, allowNull: false },
       bienes_servicios: { type: Sequelize.STRING, allowNull: false },
-      forma_juridica: { type: Sequelize.DATE, allowNull: false },
+      forma_juridica: { type: Sequelize.STRING, allowNull: false },
       fecha_inicio: { type: Sequelize.DATE, allowNull: false },
-      calle: { type: Sequelize.STRING, allowNull: false },
+      calle:{ type: Sequelize.STRING, allowNull: false },
       numero: { type: Sequelize.STRING, allowNull: false },
       entre_calle1: { type: Sequelize.STRING, allowNull: false },
       entre_calle2: { type: Sequelize.STRING, allowNull: false },

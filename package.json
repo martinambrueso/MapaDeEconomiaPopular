@@ -30,14 +30,14 @@
   ],
   "main": "app.js",
   "author": "Wolox",
-  "homepage": "git@github.com:martinambrueso/MapaDeEconomiaPopular.git",
+  "homepage": "git@github.com:carzoglioemanuel/tsc5.git",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:martinambrueso/MapaDeEconomiaPopular.git"
+    "url": "git@github.com:carzoglioemanuel/tsc5.git.git"
   },
   "bugs": {
-    "url": "git@github.com:martinambrueso/MapaDeEconomiaPopular.git",
+    "url": "git@github.com:carzoglioemanuel/tsc5.git/issues",
     "email": "tls@wolox.com.ar"
   },
   "dependencies": {

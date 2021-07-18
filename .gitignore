@@ -1,7 +1,5 @@
 TSC5 - INFORME.docx
 
-audit.log
-
 # Frontend Dist Files
 app/dist
 
@@ -45,6 +43,9 @@ node_modules
 
 # Code coverage
 ./coverage
+
+# dotenv
+.env
 
 # VS Code
 .vscode/

@@ -2,17 +2,6 @@
 
 Materia TSC5 - Cuatrimestre 2 del año 2020
 
-# instala todas las dependencias necesarias, las lee del package.json
-npm install
-# crea la base de datos db_tsc5
-npx sequelize db:create 
-# corre la migracion de modelos de datos
-npm run migrations
-# instala el swagger de configuracion
-npm run swagger-autogen
-# corre el servidor Node
-npm start
-
 ## First steps
 
 #### Installing node

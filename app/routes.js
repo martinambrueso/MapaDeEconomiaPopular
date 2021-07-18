@@ -5,6 +5,7 @@ const subcategoriesController = require('./controllers/subcategories');
 const entitiesController = require('./controllers/entities.js');
 const userController = require('./controllers/users');
 const auth = require('./middlewares/auth')
+
 const logger = require('./logger/audit_logger')
 
 exports.init = app => {
