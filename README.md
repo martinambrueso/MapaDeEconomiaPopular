@@ -171,4 +171,4 @@ También se diseñaron los endpoints para autenticación y autorización, la imp
 - Hacer una gestión mas compleja de los payloads de JWT, si bien cumple, se pueden agregar muchas más validaciones.
 - Adicionarle al servidor productivo TLS.
 - Hacer una gestión mas compleja de los headers http.
-pág.
+- Debera establecerse la logica junto con el equipo frontend para la implementacion de tokens csrf en los formularios.
