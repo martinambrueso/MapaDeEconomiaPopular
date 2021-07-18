@@ -135,11 +135,53 @@
             "schema": {
               "type": "object",
               "properties": {
-                "user": {
+                "nombre": {
                   "example": "any"
                 },
-                "email": {
+                "nombre_antigua_firma": {
                   "example": "any"
+                },
+                "fecha_recuperacion": {
+                  "example": "1970-01-19 19:50:37.838+00"
+                },
+                "bienes_servicios": {
+                  "example": "any"
+                },
+                "forma_juridica": {
+                  "example": "any"
+                },
+                "fecha_inicio": {
+                  "example": "1970-01-19 19:50:37.838+00"
+                },
+                "calle": {
+                  "example": "any"
+                },
+                "numero": {
+                  "example": "any"
+                },
+                "entre_calle1": {
+                  "example": "any"
+                },
+                "entre_calle2": {
+                  "example": "any"
+                },
+                "barrio": {
+                  "example": "any"
+                },
+                "categoryId": {
+                  "example": 1
+                },
+                "subcategoryId": {
+                  "example": 1
+                },
+                "businessAreaId": {
+                  "example": 1
+                },
+                "unityId": {
+                  "example": 1
+                },
+                "subunityId": {
+                  "example": 1
                 }
               }
             }
