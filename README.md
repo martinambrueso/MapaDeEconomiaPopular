@@ -5,24 +5,6 @@
 
 # Trabajo Social Comunitario 5 
 
-
-
-PROFESORA:
-
-- Sabrina Abran
-
-DATOS DE LOS ESTUDIANTES:
-
-- Gastón Capretti
-- Matias Azcui
-- Martín Ambrueso
-
-
-
-
-
-
-# **Anexo técnico**
 En esta sección se plantean todos los detalles técnicos, como así también los pasos de instalación y detalles a tener en cuenta para el escalado horizontal y vertical a futuro. Plantearemos los cuestionantes que tuvimos a lo largo de este trayecto y las decisiones por las cuales optamos y los por qué.
 
 ## **Despliegue local**
@@ -130,17 +112,21 @@ Este documento se expone en <http://localhost:3000/docs/> una vez corriendo el s
 BASE URL: <http://localhost:3000/>
 
 ```python
-'/api/v2/business-area'
+/api/v2/business-area
 
-'/api/v2/categories'
+/api/v2/categories
 
-'/api/v2/categories/:id/subcategories'
+/api/v2/categories/:id/subcategories
 
-'/api/v2/entities'
+/api/v2/unities
 
-'/api/v2/signup'
+/api/v2/unities/:id/subunities
 
-'/api/v2/login'
+/api/v2/entities
+
+/api/v2/signup
+
+/api/v2/login
 ```
 
 Se adjunta postman collection, file: "TSC5.postman_collection.json"
@@ -154,11 +140,15 @@ El proyecto intentamos hacerlo lo mas reutilizable y desacoplado posible, siempr
 
 En caso de querer agregar mas modelos de datos a la base de datos, tener en cuenta que se esta usando un ORM (Object Relational Mapping), con lo cual, no se están ejecutando querys sql desde el código, sino que se abstrae esa lógica al framework de Sequelize ORM. Va a ser necesario que cree un modelo:
 
+```bash
 npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+```
 
 Esto nos va a crear una nueva migración, y debemos correrla para que impacte:
 
+```bash
 npx sequelize-cli db:migrate:undo
+```
 
 Esto va a crear todos los archivos y tablas necesarias en postgres para poder mapear objetos desde el backend.
 
@@ -186,5 +176,4 @@ También se diseñaron los endpoints para autenticación y autorización, la imp
 - Hacer una gestión mas compleja de los payloads de JWT, si bien cumple, se pueden agregar muchas más validaciones.
 - Adicionarle al servidor productivo TLS.
 - Hacer una gestión mas compleja de los headers http.
-pág. PAGE  \\* Arabic10
-
+pág.
