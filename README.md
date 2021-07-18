@@ -53,7 +53,9 @@ Como se puede ver, cuenta con configuraciones de todo tipo, pero tener en cuenta
 
 Prestar principal atención a las variables que comienzan con DB\_, ESTAS SON LAS PRINCIPALES QUE SE DEBEN CAMBIAR EN FUNCION DE LA CADENA DE CONEXIÓN DE LA BASE DE DATOS QUE TIENEN LEVANTADA LOCALMENTE.
 
+```bash
 Server={192.168.1.22};Database={db\_tsc5};Port={5432};UID={postgres};Password={docker}
+```
 
 El servidor de backend Node se va a valer de todo esto para trabajar, aportando estas configuraciones no va a ser necesario modificar mas nada, solo correr los comandos siguientes:
 
