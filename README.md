@@ -143,6 +143,8 @@ BASE URL: <http://localhost:3000/>
 '/api/v2/login'
 ```
 
+Se adjunta postman collection, file: "TSC5.postman_collection.json"
+
 
 Para mejor apreciación, observar con Swagger docs
 
