@@ -142,7 +142,7 @@ npx sequelize-cli model:generate --name User --attributes firstName:string,lastN
 Esto nos va a crear una nueva migración, y debemos correrla para que impacte:
 
 ```bash
-npx sequelize-cli db:migrate:undo
+npx sequelize-cli db:migrate
 ```
 
 Esto va a crear todos los archivos y tablas necesarias en postgres para poder mapear objetos desde el backend.
