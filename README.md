@@ -47,6 +47,27 @@ Docker: <https://hub.docker.com/r/dpage/pgadmin4/>
 
 A la hora de desplegar hay ciertas cosas a tener en cuenta, el proyecto cuenta con un archivo de variables de entorno, nombrado como .env. En el mismo están todas las configuraciones por ambiente, en este caso tener en cuenta que vamos a trabajar siempre sobre development, pero esta preparado para un circuito CICD para futuras integraciones.
 
+```bash
+PORT=3000
+DB_HOST=192.168.1.22
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=docker
+DB_NAME=db_tsc5
+DB_NAME_DEV=db_tsc5_dev
+DB_NAME_TEST=db_tsc5_test
+API_DATE=X-API-Date
+PACKAGE_VERSION=X-Package-Version
+NODE_VERSION=X-Node-Version
+
+#API_BODY_SIZE_LIMIT
+#API_PARAMETER_LIMIT
+
+NODE_ENV = development
+
+SECRET = dasa33-c2ae-4b9de-b638-2b2aa3366
+```
+
 Es importante aclarar que este archivo jamás debe estar en repositorio, en este caso se hizo ya que no esta productivo.
 
 Como se puede ver, cuenta con configuraciones de todo tipo, pero tener en cuenta que tiene una secret y credenciales, es recomendable que, a futuro, al salir a producción, se configure un Vault de credenciales para ser inyectadas.
