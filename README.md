@@ -91,11 +91,15 @@ O también puede correrlo con Docker:
 
 # descarga la imagen de docker y corre todos los stages del Dockerfile
 
+```bash
 docker build . -t tsc\_backend
+```
 
 # corre el contenedor anteriormente creado en puerto 3000
 
+```bash
 docker run -p 3000:3000 -d tsc\_backend
+```
 
 
 ## **Swagger de documentación**
