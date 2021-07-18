@@ -1,8 +1,3 @@
-
-
-
-
-
 # Trabajo Social Comunitario 5 
 
 En esta sección se plantean todos los detalles técnicos, como así también los pasos de instalación y detalles a tener en cuenta para el escalado horizontal y vertical a futuro. Plantearemos los cuestionantes que tuvimos a lo largo de este trayecto y las decisiones por las cuales optamos y los por qué.
@@ -112,21 +107,21 @@ Este documento se expone en <http://localhost:3000/docs/> una vez corriendo el s
 BASE URL: <http://localhost:3000/>
 
 ```python
-/api/v2/business-area
+GET '/api/v2/business-area'
 
-/api/v2/categories
+GET '/api/v2/categories'
 
-/api/v2/categories/:id/subcategories
+GET '/api/v2/categories/:id/subcategories'
 
-/api/v2/unities
+GET '/api/v2/unities'
 
-/api/v2/unities/:id/subunities
+GET '/api/v2/unities/:id/subunities'
 
-/api/v2/entities
+POST '/api/v2/entities'
 
-/api/v2/signup
+POST '/api/v2/signup'
 
-/api/v2/login
+POST '/api/v2/login'
 ```
 
 Se adjunta postman collection, file: "TSC5.postman_collection.json"
