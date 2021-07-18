@@ -17,6 +17,7 @@ RUN npm install
 COPY . .
 
 # run migrations database
+RUN npx sequelize db:create
 RUN npm run migrations
 RUN npm run swagger-autogen
 
