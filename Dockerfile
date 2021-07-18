@@ -19,7 +19,6 @@ COPY . .
 # run migrations database
 RUN npx sequelize db:create
 RUN npm run migrations
-RUN npm run swagger-autogen
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
