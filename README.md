@@ -165,7 +165,8 @@ También se diseñaron los endpoints para autenticación y autorización, la imp
 - El algoritmo de firma digital actual es HMAC + SHA256, es conveniente generar claves RSA y configurarlo con algoritmo de firma asimétrica RSASSA-PKCS1-v1\_5 + SHA256, actualmente la verificación es simétrica y segura, pero esto le daría valor agregado.
 - Hacer una gestión mas compleja de los tokens, actualmente tienen tiempo de caducidad fijos, no hay lógica para perfiles
 - La autorización por admin esta basada en un campo booleano en base de datos de users, es necesario armar un modelo de usuario, roles y permisos, la lógica de backend llevaría bajo impacto, es solo diseñar los modelos de base de datos.
-- El logging de auditoria se esta guardando en un archivo local ("audit.log"), se agrego en el middleware de logger un objeto de configuración para Logstash, esta funcionando, pero se deberá desplegar instancias ELK en el ecosistema.
+- El logging de auditoria se esta guardando en un archivo local ("audit.log"), se agrego en el middleware de logger un objeto de configuración para Logstash, esta funcionando, pero se deberá desplegar instancias ELK en el ecosistema, luego basta con descomentar el codigo y reemplazar datos de 
+conexion.
 
 ```javascript
 const winston = require('winston-logstash-transport')
