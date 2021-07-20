@@ -189,3 +189,22 @@ const logger = winston.createLogger({
 - Adicionarle al servidor productivo TLS.
 - Hacer una gestión mas compleja de los headers http.
 - Debera establecerse la logica junto con el equipo frontend para la implementacion de tokens csrf en los formularios.
+
+
+## **Gestion de middlewares**
+
+Todas las rutas tienen logica de middleware, con lo cual, por cada request, antes de dar ejecucion de la funcion principal, se valida, autentica y loggea la operacion. Se pueden injectar los middlewares a necesidad, ejemplo:
+
+```javascript
+const auth = require('./middlewares/auth')
+const logger = require('./logger/audit_logger')
+
+app.post('/api/v2/entities', 
+            (req, res, next) => logger.loggerTransactions(req, res, next), //middleware logger
+            auth.isAuthenticated, //middleware de autenticacion
+            auth.isAuthorized,  //middleware de autorizacion, checkea admin
+            entitiesController.createOne // core function
+        );
+```
+
+De esta forma, por ejemplo, si se necesita solo autenticacion, se pueden ritarar los demas middlewares sin afectar la logica general.
